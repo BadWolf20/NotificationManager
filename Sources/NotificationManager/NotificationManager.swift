@@ -4,7 +4,7 @@
 import UserNotifications
 
 public class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
-    static let shared = NotificationManager()
+    public static let shared = NotificationManager()
 
     private let notificationCenter = UNUserNotificationCenter.current()
 
