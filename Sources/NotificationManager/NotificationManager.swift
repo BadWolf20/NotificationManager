@@ -3,8 +3,8 @@
 
 import UserNotifications
 
-public class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
-    public static let shared = NotificationManager()
+class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
+    static let shared = NotificationManager()
 
     private let notificationCenter = UNUserNotificationCenter.current()
 
@@ -37,7 +37,7 @@ public class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     }
 
     /// Отображает уведомление внутри приложения.
-    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         if #available(iOS 14.0, *) {
             completionHandler([.sound, .banner])
         } else {
@@ -46,7 +46,7 @@ public class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     }
 
     /// Обрабатывает действия пользователя при нажатии на уведомление.
-    public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print(#function)
     }
 }
