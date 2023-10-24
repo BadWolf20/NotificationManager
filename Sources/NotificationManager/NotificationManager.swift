@@ -32,7 +32,7 @@ public class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
 
         let request = UNNotificationRequest(identifier: "Notification", content: content, trigger: trigger)
         notificationCenter.add(request) { (error) in
-            print(error?.localizedDescription ?? "No error description")
+//            print(error?.localizedDescription ?? "No error description")
         }
     }
 
